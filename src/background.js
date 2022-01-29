@@ -18,9 +18,11 @@ async function createWindow() {
 
 
   // Create the browser window.
+  // Don't show the window until it's ready, this prevents any white flickering
   const win = new BrowserWindow({
     width: width,
     height: height,
+    show: false,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -28,6 +30,10 @@ async function createWindow() {
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
     }
   })
+
+  // Hide App Menu & maximize the window
+  win.setMenu(null);
+  win.maximize();
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
