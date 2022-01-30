@@ -18,6 +18,8 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@mdi/js": "^6.5.95",
+    "@jamescoyle/vue-icon": "^0.1.2",
     "core-js": "^3.20.3",
     "vue": "^3.2.29",
     "vue-router": "^4.0.12",
