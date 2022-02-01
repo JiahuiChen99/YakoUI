@@ -15,7 +15,7 @@
         <!-- Navigation buttons -->
         <div class="flex flex-col gap-y-5">
             <div v-for="(page, index) in pages" :key="index" class="flex justify-between">
-                <router-link :active-class="nav_state ? 'text-primary_variant dark:bg-dark_primary_variant' : 'bg-primary'"
+                <router-link :active-class="nav_state ? 'text-primary_variant dark:text-dark_primary_variant' : 'bg-primary'"
                              :class="nav_state ? null : 'justify-center'"
                              class="flex w-full py-2 dark:bg-dark_primary hover:text-primary_variant
                              dark:hover:bg-dark_primary_variant rounded-lg"
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-</template>div
+</template>
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon';
