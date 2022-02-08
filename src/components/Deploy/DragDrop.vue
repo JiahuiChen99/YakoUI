@@ -60,13 +60,13 @@ export default {
                 uploaded_file = e.dataTransfer.files[0];
                 if ( !uploaded_file ) return;
                 this.data_file = uploaded_file;
-                this.selected_file_name = this.data_file.name;
+                this.$store.commit('deploy/setName', this.data_file.name);
                 return;
             }
             uploaded_file = e.target.files[0];
             if ( !uploaded_file ) return;
             this.data_file = uploaded_file;
-            this.selected_file_name = this.data_file.name;
+            this.$store.commit('deploy/setName', this.data_file.name);
             this.$refs.ds_file.value = null;
         },
     },
