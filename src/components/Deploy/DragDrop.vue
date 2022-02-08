@@ -73,7 +73,6 @@ export default {
     data() {
         return {
             file_selected: false,
-            selected_file_name: "",
             data_file: null,
             show_popUp : false,
             upload_file_icon: mdiFileUpload
