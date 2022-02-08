@@ -37,6 +37,7 @@ export default {
         IconButton,
         SvgIcon
     },
+    emits: ['uploadFile'],
     setup() {
         // File input reference
         const active = ref(false)
@@ -60,20 +61,23 @@ export default {
                 uploaded_file = e.dataTransfer.files[0];
                 if ( !uploaded_file ) return;
                 this.data_file = uploaded_file;
-                this.selected_file_name = this.data_file.name;
+                this.$store.commit('deploy/setName', this.data_file.name);
+                // Toggles upload confirmation popup
+                this.$emit('uploadFile');
                 return;
             }
             uploaded_file = e.target.files[0];
             if ( !uploaded_file ) return;
             this.data_file = uploaded_file;
-            this.selected_file_name = this.data_file.name;
+            this.$store.commit('deploy/setName', this.data_file.name);
             this.$refs.ds_file.value = null;
+            // Toggles upload confirmation popup
+            this.$emit('uploadFile');
         },
     },
     data() {
         return {
             file_selected: false,
-            selected_file_name: "",
             data_file: null,
             show_popUp : false,
             upload_file_icon: mdiFileUpload
