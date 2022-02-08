@@ -18,6 +18,7 @@
   },
   "main": "background.js",
   "dependencies": {
+    "axios": "^0.25.0",
     "@mdi/js": "^6.5.95",
     "@jamescoyle/vue-icon": "^0.1.2",
     "core-js": "^3.20.3",
