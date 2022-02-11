@@ -12,6 +12,7 @@
 <script>
 import DragDrop from "@/components/Deploy/DragDrop";
 import UploadConfirmation from "@/components/Deploy/UploadConfirmation";
+import yakoapi from "@/services/API/yakoAPI";
 
 export default {
     name: "DeployPage",
@@ -23,7 +24,11 @@ export default {
         /**
          * Toggles upload confirmation popup
          */
-        toggle_popup: function () {
+        toggle_popup: function (app) {
+            // Store the selected app to be deployed
+            if ( app !== null ) {
+                this.app_file = app;
+            }
             this.file_selected = !this.file_selected;
         },
         /**
@@ -35,7 +40,14 @@ export default {
          */
         confirm_upload: function (buttonID) {
             if ( buttonID ) {
-                // TODO: Upload file to YakoMaster
+                // Upload application to YakoMaster
+                const formData = new FormData();
+                formData.append('app', this.app_file);
+                yakoapi.deploy_app('deploy', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
             }
 
             // Hides the popup
@@ -45,6 +57,7 @@ export default {
     data() {
         return {
             file_selected: false,
+            app_file: null
         }
     }
 }
