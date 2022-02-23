@@ -18,8 +18,17 @@ class yakoAPI {
      * @return {Promise<AxiosResponse<any>>}
      */
      deploy_app(endpoint, app, params) {
-         console.log(this.api)
+        console.log(this.api)
         return this.api.post(endpoint, app, params)
+    }
+
+    /**
+     * Pings YakoMaster for an availability check
+     * @param endpoint route '/alive'
+     * @return {Promise<AxiosResponse<any>>}
+     */
+    health_check(endpoint) {
+        return this.api.get(endpoint);
     }
 }
 
