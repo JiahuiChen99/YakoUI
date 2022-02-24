@@ -32,8 +32,9 @@
 
 <script>
 import SvgIcon from "@jamescoyle/vue-icon";
-import {mdiClose, mdiCogOutline , mdiUpload} from "@mdi/js";
+import {mdiClose, mdiCogOutline, mdiSignalCellular3, mdiSignalCellularOutline, mdiUpload} from "@mdi/js";
 import IconButton from "@/components/UI/IconButton";
+import yakoAPI from "@/services/API/yakoAPI";
 
 export default {
     name: "UploadConfirmation",
@@ -48,12 +49,22 @@ export default {
         }
     },
     methods: {
+        health_check: function () {
+            yakoAPI.health_check('alive').then( () => {
+                this.alive = true;
+            }).catch( err => {
+                console.log(err)
+                this.alive = false;
+            });
+        }
     },
     data() {
         return {
             app_icon: mdiCogOutline,
             cancel_icon: mdiClose,
             upload_icon: mdiUpload,
+            test_conn_icon: mdiSignalCellularOutline,
+            conn_alive_icon: mdiSignalCellular3,
             alive: false,
             data_structures: ['Graph', 'Tree']
         }
