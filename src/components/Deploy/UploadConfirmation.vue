@@ -8,6 +8,18 @@
                 <span class="ml-5"> {{ app_name }} </span>
             </div>
 
+            <!-- YakoMaster health check -->
+            <div class="flex h-auto justify-center">
+                <div class="flex w-auto h-auto relative">
+                    <div v-if="!alive" class="flex right-0 w-3 h-3 absolute rounded-xl bg-primary_variant"></div>
+                    <div v-if="!alive" class="flex animate-ping right-0 w-3 h-3 absolute rounded-xl bg-primary_variant"></div>
+                    <IconButton :class="alive ? 'bg-green-200' : 'bg-red-200'"
+                                :icon="alive ? conn_alive_icon : test_conn_icon"
+                                :status="true" text="Test Connection" @click="health_check"
+                    />
+                </div>
+            </div>
+
             <!-- Upload Confirmation Buttons -->
             <div class="flex flex-row justify-center">
                 <IconButton :icon="cancel_icon" status="true" text="Cancel" @click="$emit('buttonClick', false)"/>
