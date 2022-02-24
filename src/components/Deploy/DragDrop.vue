@@ -60,7 +60,7 @@ export default {
                 this.toggleActive();
                 uploaded_file = e.dataTransfer.files[0];
                 if ( !uploaded_file ) return;
-                this.app_file = uploaded_file;
+                this.data_file = uploaded_file;
                 this.$emit('uploadFile', uploaded_file);
                 this.$store.commit('deploy/setName', this.data_file.name);
                 // Toggles upload confirmation popup

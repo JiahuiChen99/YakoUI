@@ -47,6 +47,9 @@ export default {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
+                }).catch( err => {
+                    // TODO: Prompt error
+                    console.log(err)
                 })
             }
 
