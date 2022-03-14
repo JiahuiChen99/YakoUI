@@ -11,17 +11,23 @@
         <!-- YakoNode information -->
         <div class="flex w-full h-full">
             <ul>
-                <li class="flex">
+                <li class="flex" v-for="(cpu, index) in yakonode_info.CpuList" :key="index">
                     <SvgIcon type="mdi" :path="cpu_icon"/>
-                    CPU: {{ yakonode_info }}
+                    <span>
+                        CPU: {{ cpu.cpuName }}
+                    </span>
                 </li>
                 <li class="flex">
                     <SvgIcon type="mdi" :path="gpu_icon"/>
-                    GPU: {{ yakonode_info }}
+                    <span v-for="(gpu, index) in yakonode_info.GpuList" :key="index">
+                        CPU: {{ gpu.gpuName }}
+                    </span>
                 </li>
                 <li class="flex">
                     <SvgIcon type="mdi" :path="memory_icon"/>
-                    Mem: {{ yakonode_info }}
+                    <span>
+                        Mem: {{ yakonode_info.Memory.total }}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -40,7 +46,12 @@ export default {
     mounted() {
         // Get node ID
         this.node_id = this.$el.parentElement.parentElement.id
-        // TODO: Retrieve data of the node from Vuex
+        let uuid = parseInt(this.node_id.split('-')[1]);
+
+        // Get node data from vuex
+        let cluster_schema = this.$store.getters['cluster/getClusterSchema'];
+        this.yakonode_name = Object.keys(cluster_schema)[uuid - 1];
+        this.yakonode_info = Object.values(cluster_schema)[uuid - 1];
     },
     data() {
         return {
