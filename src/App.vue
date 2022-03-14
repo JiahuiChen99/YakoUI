@@ -9,11 +9,19 @@
 
 <script>
 import NavigationBar from "./components/NavigationBar";
+import yakoAPI from "@/services/API/yakoAPI";
 export default {
     name: 'App',
     components: {
         NavigationBar
     },
+    mounted() {
+        // TODO: Make the following call when connected to a YakoMaster
+        // Get the cluster schema from YakoMaster
+        yakoAPI.get_cluster().then( res => {
+            this.$store.commit('cluster/setClusterSchema', JSON.parse(res.data))
+        });
+    }
 }
 </script>
 
