@@ -1,5 +1,5 @@
 <template>
-    <section id="cluster" class="flex relative w-full h-full">
+    <section id="cluster" class="flex relative w-full h-full bg-[#090a0a]">
         <div id="cluster_chart" class="flex absolute w-full h-full">
         </div>
     </section>
