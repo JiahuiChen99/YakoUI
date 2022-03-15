@@ -12,7 +12,7 @@ import 'butterfly-dag/dist/index.css';
 export default {
     name: "ClusterPage",
     mounted() {
-        let canvas = new Canvas({
+        this.canvas = new Canvas({
             root: document.getElementById('cluster_chart'),
             disLinkable: false,
             linkable: true,
@@ -21,13 +21,42 @@ export default {
             moveable: true,
         });
 
-        // Add a minimap
-        canvas.setMinimap(true);
+        // Enable zoom & inverse scroll zooming
+        this.canvas.setZoomable(true, true);
 
-        canvas.draw({
-            nodes: [
-            ]
+        // Add a minimap
+        this.canvas.setMinimap(true, {
+            nodeColor: 'rgb(189,45,45)',
+            zoom: 1,
+            containerStyle: {
+                bottom: '10px',
+                left: '10px',
+            }
         });
+
+        // Render canvas
+        this.canvas.draw({
+            nodes: [],
+        },
+            () => {
+                this.canvas.setGridMode(true, {
+                    isAdsorb: false,
+                    theme: {
+                        shapeType: 'circle',
+                        gap: 25,
+                        background: 'rgba(0, 0, 0, 0.65)',
+                        circleRadiu: 1.5,
+                        circleColor: 'rgba(255, 255, 255, 0.8)'
+                    }
+                });
+            }
+        );
+
+    },
+    data() {
+        return {
+            canvas: null
+        }
     }
 }
 </script>
