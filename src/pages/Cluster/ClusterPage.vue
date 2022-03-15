@@ -7,6 +7,7 @@
 
 <script>
 import {Canvas} from "butterfly-dag";
+import 'butterfly-dag/dist/index.css';
 
 export default {
     name: "ClusterPage",
@@ -32,5 +33,8 @@ export default {
 </script>
 
 <style>
-
+/* Butterfly lib bug - Force absolute position */
+.butterfly-svg {
+    position: absolute !important;
+}
 </style>
