@@ -1,5 +1,5 @@
 <template>
-    <section id="yakonode_info" class="flex absolute h-full z-50 right-0 p-5 z-50"
+    <section id="yakonode_info" class="flex absolute h-full z-50 right-0 p-5 z-50 transition-all duration-500 ease-in-out"
              :class="expanded ? 'w-[80vw]': 'w-[20vw]'"
     >
         <!-- Exand information-->
