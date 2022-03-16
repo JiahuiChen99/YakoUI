@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import deploy from "@/vuex/deploy";
+import cluster from "@/vuex/cluster";
 
 const store = createStore( {
     state() {
@@ -7,7 +8,8 @@ const store = createStore( {
         }
     },
     modules: {
-        deploy
+        deploy,
+        cluster
     }
 });
 

@@ -30,6 +30,14 @@ class yakoAPI {
     health_check(endpoint) {
         return this.api.get(endpoint);
     }
+
+    /**
+     * Gets the cluster graph schema
+     * @return {Promise<AxiosResponse<any>>}
+     */
+    get_cluster() {
+        return this.api.get('cluster')
+    }
 }
 
 // New instance of the API service
