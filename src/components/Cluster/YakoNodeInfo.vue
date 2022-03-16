@@ -1,5 +1,13 @@
 <template>
-    <section id="yakonode_info" class="flex absolute w-96 h-full z-50 right-0 p-5 z-50">
+    <section id="yakonode_info" class="flex absolute h-full z-50 right-0 p-5 z-50"
+             :class="expanded ? 'w-[80vw]': 'w-[20vw]'"
+    >
+        <!-- Exand information-->
+        <button class="flex w-4 h-14 rounded-l-md text-white bg-white place-self-center hover:cursor-pointer place-items-center"
+                @click="this.expanded = !this.expanded"
+        >
+            <SvgIcon class="text-black" :path="expand_info_icon" type="mdi"/>
+        </button>
         <div class="flex flex-col w-full h-full bg-white rounded-lg p-5 space-y-5">
             <div class="flex w-full justify-between">
                 <h1 class="font-bold text-xl w-11/12"> Node #000001</h1>
@@ -64,6 +72,7 @@
 
 <script>
 import {
+    mdiChevronLeft,
     mdiClose,
     mdiContentSave,
     mdiExpansionCard,
@@ -88,7 +97,9 @@ export default {
             memory_icon: mdiContentSave,
             ip_icon: mdiIpOutline,
             port_icon: mdiSelectGroup,
-            latency_icon: mdiWifiStrength4
+            latency_icon: mdiWifiStrength4,
+            expand_info_icon: mdiChevronLeft,
+            expanded: false,
         }
     }
 }
