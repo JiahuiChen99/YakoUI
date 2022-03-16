@@ -1,0 +1,99 @@
+<template>
+    <section id="yakonode_info" class="flex absolute w-96 h-full z-50 right-0 p-5 z-50">
+        <div class="flex flex-col w-full h-full bg-white rounded-lg p-5 space-y-5">
+            <div class="flex w-full justify-between">
+                <h1 class="font-bold text-xl w-11/12"> Node #000001</h1>
+                <IButton class="text-slate-400 hover:text-black hover:bg-slate-200" :icon="close_icon"/>
+            </div>
+            <div class="flex flex-col divide-y">
+                <div class="flex flex-col w-full h-fit py-3 space-y-1">
+                    <span class="font-bold"> General Information </span>
+                    <div class="flex space-x-1">
+                        <SvgIcon :path="cpu_icon" type="mdi"/>
+                        <strong> CPU: </strong>
+                        <span> eXtreme CPU </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <SvgIcon :path="gpu_icon" type="mdi"/>
+                        <strong> GPU: </strong>
+                        <span> NVIDIA RTX 5000 </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <SvgIcon :path="memory_icon" type="mdi"/>
+                        <strong> Memory: </strong>
+                        <span> 128 GB </span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col w-full h-fit py-3 space-y-1">
+                    <span class="font-bold"> Network Information </span>
+                    <div class="flex space-x-1">
+                        <SvgIcon :path="ip_icon" type="mdi"/>
+                        <strong> IP: </strong>
+                        <span> 127.0.0.1 </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <SvgIcon :path="port_icon" type="mdi"/>
+                        <strong> Port: </strong>
+                        <span> 8000 </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <SvgIcon :path="latency_icon" type="mdi"/>
+                        <strong> Latency: </strong>
+                        <span> 1ms </span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col w-full h-fit py-3">
+                    <div class="flex justify-between">
+                        <span class="font-bold"> Deployed Applications </span>
+                        <!-- Number of deployed apps indicator -->
+                        <span class="bg-blue-100 text-blue-800 text-sm font-bold px-2.5 py-0.5 rounded-lg">
+                            10
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+import {
+    mdiClose,
+    mdiContentSave,
+    mdiExpansionCard,
+    mdiIpOutline,
+    mdiMemory,
+    mdiSelectGroup,
+    mdiWifiStrength4
+} from "@mdi/js";
+import IButton from "@/components/UI/IButton";
+import SvgIcon from "@jamescoyle/vue-icon";
+export default {
+    name: "YakoNodeInfo",
+    components: {
+        IButton,
+        SvgIcon
+    },
+    data() {
+        return {
+            close_icon: mdiClose,
+            cpu_icon: mdiMemory,
+            gpu_icon: mdiExpansionCard,
+            memory_icon: mdiContentSave,
+            ip_icon: mdiIpOutline,
+            port_icon: mdiSelectGroup,
+            latency_icon: mdiWifiStrength4
+        }
+    }
+}
+</script>
+
+<style scoped>
+
+</style>
