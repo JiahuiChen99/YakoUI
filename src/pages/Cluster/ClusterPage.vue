@@ -66,4 +66,10 @@ export default {
 .butterfly-svg {
     position: absolute !important;
 }
+
+.butterflies-link{
+    stroke: #4b4f6b;
+    stroke-width: 3px;
+}
+
 </style>
