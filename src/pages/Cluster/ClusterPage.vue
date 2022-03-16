@@ -19,6 +19,11 @@ export default {
             draggable: true,
             zoomable: true,
             moveable: true,
+            theme: {
+                edge: {
+                    shapeType: 'AdvancedBezier'
+                }
+            }
         });
 
         // Enable zoom & inverse scroll zooming
@@ -70,6 +75,17 @@ export default {
 .butterflies-link{
     stroke: #4b4f6b;
     stroke-width: 3px;
+}
+
+/* Butterfly lib - Endpoint styles */
+.butterflie-circle-endpoint {
+    position: absolute !important;
+    z-index: 100;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #3c3a3a;
+    border-radius: 50%;
+    background: #fff;
 }
 
 </style>
