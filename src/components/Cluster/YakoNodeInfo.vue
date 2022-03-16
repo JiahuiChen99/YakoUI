@@ -6,7 +6,7 @@
         <button class="flex w-4 h-14 rounded-l-md text-white bg-white place-self-center hover:cursor-pointer place-items-center"
                 @click="this.expanded = !this.expanded"
         >
-            <SvgIcon class="text-black" :path="expand_info_icon" type="mdi"/>
+            <SvgIcon class="text-black" :path="expanded ? collapse_info_icon : expand_info_icon" type="mdi"/>
         </button>
         <div class="flex flex-col w-full h-full bg-white rounded-lg p-5 space-y-5">
             <div class="flex w-full justify-between">
@@ -72,7 +72,7 @@
 
 <script>
 import {
-    mdiChevronLeft,
+    mdiChevronLeft, mdiChevronRight,
     mdiClose,
     mdiContentSave,
     mdiExpansionCard,
@@ -99,6 +99,7 @@ export default {
             port_icon: mdiSelectGroup,
             latency_icon: mdiWifiStrength4,
             expand_info_icon: mdiChevronLeft,
+            collapse_info_icon: mdiChevronRight,
             expanded: false,
         }
     }
