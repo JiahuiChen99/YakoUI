@@ -48,7 +48,7 @@ export default {
                     isAdsorb: false,
                     theme: {
                         shapeType: 'circle',
-                        gap: 25,
+                        gap: 50,
                         background: 'rgba(0, 0, 0, 0.65)',
                         circleRadiu: 1.5,
                         circleColor: 'rgba(255, 255, 255, 0.8)'
