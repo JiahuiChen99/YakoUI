@@ -1,6 +1,6 @@
 import {Node} from 'butterfly-dag';
 import {mdiContentSave, mdiExpansionCard, mdiMemory} from "@mdi/js";
-
+/*eslint-disable*/
 class YakoNode extends Node {
 
     /**
@@ -17,6 +17,12 @@ class YakoNode extends Node {
      */
     draw(obj) {
         let node = document.createElement('div');
+
+        // Add styles to the node
+        node.style.top = obj.top + 'px'
+        node.style.left = obj.left + 'px'
+        node.id = obj.id
+
         node.classList.add('absolute', 'w-auto', 'h-auto', 'bg-[#3c3a3a]', 'rounded-lg', 'text-slate-200', 'fill-slate-300');
 
         // YakoNode header
