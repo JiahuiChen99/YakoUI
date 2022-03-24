@@ -31,7 +31,7 @@
                     <div class="flex space-x-1">
                         <SvgIcon :path="memory_icon" type="mdi"/>
                         <strong> Memory: </strong>
-                        <span> 128 GB </span>
+                        <span> {{ `${this.yakonode_info.Memory.total} (${formatBytes(yakonode_info.Memory.total*1000, 2)})` }} </span>
                     </div>
                 </div>
 
@@ -83,6 +83,7 @@ import {
 } from "@mdi/js";
 import IButton from "@/components/UI/IButton";
 import SvgIcon from "@jamescoyle/vue-icon";
+import formatBytes from "@/services/utils/utils";
 export default {
     name: "YakoNodeInfo",
     components: {
@@ -95,7 +96,9 @@ export default {
          */
         close_panel: function () {
             this.$store.commit('cluster/setNodeSelected', {status: false, id: ''});
-        }
+        },
+        // Bytes formatter form utils
+        formatBytes: formatBytes
     },
     data() {
         return {
