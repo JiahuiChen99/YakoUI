@@ -22,7 +22,7 @@ const cluster = {
             return state.cluster_schema;
         },
         // Gets node_selected status to hide/show yakonode information right panel
-        getNodeSelected(state) {
+        getNodeSelectedStatus(state) {
             return state.node_selected;
         }
     }

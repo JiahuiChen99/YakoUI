@@ -20,7 +20,7 @@ export default {
     },
     computed: {
         node_selected: function () {
-            return this.$store.getters['cluster/getNodeSelected'];
+            return this.$store.getters['cluster/getNodeSelectedStatus'];
         }
     },
     mounted() {
