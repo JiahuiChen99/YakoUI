@@ -11,6 +11,7 @@ import {Canvas} from "butterfly-dag";
 import 'butterfly-dag/dist/index.css';
 import YakoNodeInfo from "@/components/Cluster/YakoNodeInfo";
 import YakoNode from "@/components/Cluster/YakoNode";
+import YakoNodeEndpoint from "@/components/Cluster/YakoNodeEndpoint";
 
 export default {
     name: "ClusterPage",
@@ -27,6 +28,13 @@ export default {
                 left: 500,
                 data: schema[nodeID],
                 Class: YakoNode,
+                // YakoAgents left endpoint
+                endpoints: [{
+                    id: 'left' + index,
+                    orientation: [-1, 0],
+                    pos: [0, 0.5],
+                    Class: YakoNodeEndpoint
+                }]
             })
         })
 
