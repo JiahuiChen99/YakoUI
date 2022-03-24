@@ -2,15 +2,21 @@
     <section id="cluster" class="flex relative w-full h-full bg-[#090a0a]">
         <div id="cluster_chart" class="flex absolute w-full h-full">
         </div>
+        <YakoNodeInfo v-if="true"/>
     </section>
 </template>
 
 <script>
 import {Canvas} from "butterfly-dag";
 import 'butterfly-dag/dist/index.css';
+import YakoNodeInfo from "@/components/Cluster/YakoNodeInfo";
+import YakoNode from "@/components/Cluster/YakoNode";
 
 export default {
     name: "ClusterPage",
+    components: {
+        YakoNodeInfo
+    },
     mounted() {
         // Get cluster information from store
         let schema = this.$store.getters['cluster/getClusterSchema'];
