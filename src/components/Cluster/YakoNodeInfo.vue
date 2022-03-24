@@ -19,7 +19,7 @@
                     <div class="flex space-x-1">
                         <SvgIcon :path="cpu_icon" type="mdi"/>
                         <strong> CPU: </strong>
-                        <span> eXtreme CPU </span>
+                        <span> {{ this.yakonode_info.CpuList[0].cpuName }} </span>
                     </div>
 
                     <div class="flex space-x-1">
