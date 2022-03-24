@@ -2,7 +2,7 @@
     <section id="cluster" class="flex relative w-full h-full bg-[#090a0a]">
         <div id="cluster_chart" class="flex absolute w-full h-full">
         </div>
-        <YakoNodeInfo v-if="true"/>
+        <YakoNodeInfo v-if="node_selected"/>
     </section>
 </template>
 
@@ -17,6 +17,11 @@ export default {
     name: "ClusterPage",
     components: {
         YakoNodeInfo
+    },
+    computed: {
+        node_selected: function () {
+            return this.$store.getters['cluster/getNodeSelected'];
+        }
     },
     mounted() {
         // Get cluster information from store
