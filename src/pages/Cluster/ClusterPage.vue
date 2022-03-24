@@ -91,6 +91,10 @@ export default {
     position: absolute !important;
 }
 
+.node {
+    position: absolute;
+}
+
 .butterflies-link{
     stroke: #4b4f6b;
     stroke-width: 3px;
