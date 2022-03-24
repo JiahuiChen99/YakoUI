@@ -24,6 +24,9 @@ const cluster = {
         // Gets node_selected status to hide/show yakonode information right panel
         getNodeSelectedStatus(state) {
             return state.node_selected;
+        },
+        getSelectedNodeID(state) {
+            return state.selected_node_id;
         }
     }
 }
