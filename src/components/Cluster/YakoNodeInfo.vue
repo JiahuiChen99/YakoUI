@@ -11,7 +11,7 @@
         <div class="flex flex-col w-full h-full bg-white rounded-lg p-5 space-y-5">
             <div class="flex w-full justify-between">
                 <h1 class="font-bold text-xl w-11/12"> Node #000001</h1>
-                <IButton class="text-slate-400 hover:text-black hover:bg-slate-200" :icon="close_icon"/>
+                <IButton class="text-slate-400 hover:text-black hover:bg-slate-200" :icon="close_icon" @click="close_panel"/>
             </div>
             <div class="flex flex-col divide-y">
                 <div class="flex flex-col w-full h-fit py-3 space-y-1">
@@ -88,6 +88,14 @@ export default {
     components: {
         IButton,
         SvgIcon
+    },
+    methods: {
+        /**
+         * Closes the panel
+         */
+        close_panel: function () {
+            this.$store.commit('cluster/setNodeSelected', {status: false, id: ''});
+        }
     },
     data() {
         return {
