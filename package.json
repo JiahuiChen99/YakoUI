@@ -21,7 +21,7 @@
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^6.5.95",
     "axios": "^0.25.0",
-    "butterfly-dag": "^4.1.33",
+    "butterfly-dag": "^4.2.0",
     "core-js": "^3.20.3",
     "drawflow": "^0.0.55",
     "vue": "^3.2.29",
