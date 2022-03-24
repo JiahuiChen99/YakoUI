@@ -14,6 +14,7 @@
                 <IButton class="text-slate-400 hover:text-black hover:bg-slate-200" :icon="close_icon" @click="close_panel"/>
             </div>
             <div class="flex flex-col divide-y">
+                <!-- General information -->
                 <div class="flex flex-col w-full h-fit py-3 space-y-1">
                     <span class="font-bold"> General Information </span>
                     <div class="flex space-x-1">
@@ -35,6 +36,36 @@
                     </div>
                 </div>
 
+                <!-- System information -->
+                <div class="flex flex-col w-full h-fit py-3 space-y-1">
+                    <span class="font-bold"> System Information </span>
+                    <div class="flex space-x-1">
+                        <strong> Host name: </strong>
+                        <span> {{ this.yakonode_info.SysInfo.node_name }} </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <strong> OS: </strong>
+                        <span> {{ this.yakonode_info.SysInfo.sys_name }} </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <strong> Release: </strong>
+                        <span> {{ this.yakonode_info.SysInfo.release }} </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <strong> Architecture: </strong>
+                        <span> {{ this.yakonode_info.SysInfo.machine }} </span>
+                    </div>
+
+                    <div class="flex space-x-1">
+                        <strong> Version: </strong>
+                        <span> {{ this.yakonode_info.SysInfo.version }} </span>
+                    </div>
+                </div>
+
+                <!-- Network information -->
                 <div class="flex flex-col w-full h-fit py-3 space-y-1">
                     <span class="font-bold"> Network Information </span>
                     <div class="flex space-x-1">
