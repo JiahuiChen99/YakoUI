@@ -1,5 +1,6 @@
 import {Node} from 'butterfly-dag';
 import {mdiContentSave, mdiExpansionCard, mdiMemory} from "@mdi/js";
+import formatBytes from "@/services/utils/utils";
 /*eslint-disable*/
 class YakoNode extends Node {
 
@@ -16,6 +17,7 @@ class YakoNode extends Node {
      * @return {dom} - node dom
      */
     draw(obj) {
+        let yakonode_info = obj.options.data;
         let node = document.createElement('div');
 
         // Add styles to the node
@@ -41,7 +43,7 @@ class YakoNode extends Node {
         let gpu = genSVGItem(mdiExpansionCard, 'NVIDIA RTX 5000');
 
         // Memory
-        let memory = genSVGItem(mdiContentSave, '16GB');
+        let memory = genSVGItem(mdiContentSave, `${yakonode_info.Memory.total} (${formatBytes(yakonode_info.Memory.total*1000, 2)})`);
 
         body.appendChild(cpu);
         body.appendChild(gpu);
