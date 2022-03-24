@@ -88,6 +88,11 @@ export default {
             }
         );
 
+        // YakoNode on click event toggles panel view & sets the selected yakonode ID
+        this.canvas.on('system.node.click', (node_data) => {
+            this.$store.commit('cluster/setNodeSelected', {status: true, id: node_data.node.id});
+        });
+
     },
     data() {
         return {
