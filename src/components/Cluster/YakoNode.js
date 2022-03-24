@@ -37,7 +37,7 @@ class YakoNode extends Node {
         body.classList.add('flex', 'flex-col', 'px-5', 'py-2')
 
         // CPU
-        let cpu = genSVGItem(mdiMemory, 'eXtreme CPU');
+        let cpu = genSVGItem(mdiMemory, yakonode_info.CpuList[0].cpuName);
 
         // GPU
         let gpu = genSVGItem(mdiExpansionCard, 'NVIDIA RTX 5000');
