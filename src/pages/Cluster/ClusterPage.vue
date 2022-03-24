@@ -12,6 +12,18 @@ import 'butterfly-dag/dist/index.css';
 export default {
     name: "ClusterPage",
     mounted() {
+        // Get cluster information from store
+        let schema = this.$store.getters['cluster/getClusterSchema'];
+        Object.keys(schema).forEach( (nodeID, index) => {
+            this.nodes.push({
+                id: nodeID,
+                top: 200 +  (index * 150),
+                left: 500,
+                data: schema[nodeID],
+                Class: YakoNode,
+            })
+        })
+
         this.canvas = new Canvas({
             root: document.getElementById('cluster_chart'),
             disLinkable: false,
@@ -41,7 +53,7 @@ export default {
 
         // Render canvas
         this.canvas.draw({
-            nodes: [],
+            nodes: this.nodes,
         },
             () => {
                 this.canvas.setGridMode(true, {
@@ -60,7 +72,8 @@ export default {
     },
     data() {
         return {
-            canvas: null
+            canvas: null,
+            nodes: []
         }
     }
 }
