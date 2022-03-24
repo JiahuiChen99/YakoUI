@@ -117,6 +117,8 @@ export default {
     },
     data() {
         return {
+            yakonode_id: '',
+            yakonode_info: null,
             close_icon: mdiClose,
             cpu_icon: mdiMemory,
             gpu_icon: mdiExpansionCard,
