@@ -10,7 +10,7 @@
         </button>
         <div class="flex flex-col w-full h-full bg-white rounded-lg p-5 space-y-5">
             <div class="flex w-full justify-between">
-                <h1 class="font-bold text-xl w-11/12"> Node #000001</h1>
+                <h1 class="font-bold text-xl w-11/12"> Node #{{ this.yakonode_id }}</h1>
                 <IButton class="text-slate-400 hover:text-black hover:bg-slate-200" :icon="close_icon" @click="close_panel"/>
             </div>
             <div class="flex flex-col divide-y">
