@@ -25,7 +25,7 @@
                     <div class="flex space-x-1">
                         <SvgIcon :path="gpu_icon" type="mdi"/>
                         <strong> GPU: </strong>
-                        <span> NVIDIA RTX 5000 </span>
+                        <span> {{ this.yakonode_info.GpuList[0].gpuName }} </span>
                     </div>
 
                     <div class="flex space-x-1">
