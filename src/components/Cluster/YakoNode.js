@@ -30,7 +30,7 @@ class YakoNode extends Node {
         // YakoNode header
         let header = document.createElement('div');
         header.classList.add('flex', 'w-full', 'h-full', 'border-b', 'font-bold', 'px-5', 'py-2', 'justify-center');
-        header.innerText = 'Node #';
+        header.innerText = `Node #${obj.id}`;
 
         // YakoNode body
         let body = document.createElement('div');
