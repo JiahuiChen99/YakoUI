@@ -26,6 +26,25 @@ export default {
     mounted() {
         // Get cluster information from store
         let schema = this.$store.getters['cluster/getClusterSchema'];
+        // Generate YakoMaster nodes
+        Object.keys(schema.yako_masters).forEach( (nodeID, index) => {
+            this.nodes.push({
+                id: nodeID,
+                top: 250 +  (index * 150),
+                left: 50,
+                data: schema.yako_masters[nodeID],
+                Class: YakoNode,
+                // YakoAgents left endpoint
+                endpoints: [{
+                    id: 'right' + index,
+                    orientation: [1, 0],
+                    pos: [0, 0.5],
+                    Class: YakoNodeEndpoint
+                }]
+            })
+        });
+
+        // Generate YakoAgent nodes
         Object.keys(schema.yako_agents).forEach( (nodeID, index) => {
             this.nodes.push({
                 id: nodeID,
