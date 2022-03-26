@@ -1,5 +1,5 @@
 import {Node} from 'butterfly-dag';
-import {mdiContentSave, mdiExpansionCard, mdiMemory} from "@mdi/js";
+import {mdiContentSave, mdiCrown, mdiExpansionCard, mdiMemory} from "@mdi/js";
 import formatBytes from "@/services/utils/utils";
 /*eslint-disable*/
 class YakoNode extends Node {
@@ -28,9 +28,14 @@ class YakoNode extends Node {
         node.classList.add('absolute', 'w-auto', 'h-auto', 'bg-[#3c3a3a]', 'rounded-lg', 'text-slate-200', 'fill-slate-300');
 
         // YakoNode header
-        let header = document.createElement('div');
-        header.classList.add('flex', 'w-full', 'h-full', 'border-b', 'font-bold', 'px-5', 'py-2', 'justify-center');
-        header.innerText = `Node #${obj.id}`;
+        let header;
+        if (obj.id[0] === 'm') {
+            header = genYakoMasterHeader(obj.id);
+        } else {
+            header = document.createElement('div');
+            header.classList.add('flex', 'w-full', 'h-full', 'border-b', 'font-bold', 'px-5', 'py-2', 'justify-center');
+            header.innerText = `Node #${obj.id}`;
+        }
 
         // YakoNode body
         let body = document.createElement('div');
@@ -55,6 +60,22 @@ class YakoNode extends Node {
 
         return node;
     }
+}
+
+/**
+ * Generates a header for a yakomaster node
+ * with a crown icon
+ * @param nodeID yakonode id
+ */
+function genYakoMasterHeader(nodeID) {
+    let header = document.createElement('div');
+    header.classList.add('flex', 'w-full', 'h-full', 'border-b', 'font-bold', 'px-5', 'py-2', 'justify-center');
+    header.innerText = `Node #${nodeID}`;
+    let crown = genSVGIcon(mdiCrown);
+    crown.classList.add('bg-slate-900', 'rounded-md', 'absolute', 'right-2')
+    header.appendChild(crown);
+
+    return header;
 }
 
 /**
