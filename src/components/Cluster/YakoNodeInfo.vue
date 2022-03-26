@@ -71,13 +71,13 @@
                     <div class="flex space-x-1">
                         <SvgIcon :path="ip_icon" type="mdi"/>
                         <strong> IP: </strong>
-                        <span> 127.0.0.1 </span>
+                        <span> {{ this.yakonode_info.socket.split(':')[0] }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <SvgIcon :path="port_icon" type="mdi"/>
                         <strong> Port: </strong>
-                        <span> 8000 </span>
+                        <span> {{ this.yakonode_info.socket.split(':')[1] }} </span>
                     </div>
 
                     <div class="flex space-x-1">
