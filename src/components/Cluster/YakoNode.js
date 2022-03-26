@@ -1,6 +1,7 @@
 import {Node} from 'butterfly-dag';
 import {mdiContentSave, mdiExpansionCard, mdiMemory} from "@mdi/js";
-
+import formatBytes from "@/services/utils/utils";
+/*eslint-disable*/
 class YakoNode extends Node {
 
     /**
@@ -16,26 +17,33 @@ class YakoNode extends Node {
      * @return {dom} - node dom
      */
     draw(obj) {
+        let yakonode_info = obj.options.data;
         let node = document.createElement('div');
+
+        // Add styles to the node
+        node.style.top = obj.top + 'px'
+        node.style.left = obj.left + 'px'
+        node.id = obj.id
+
         node.classList.add('absolute', 'w-auto', 'h-auto', 'bg-[#3c3a3a]', 'rounded-lg', 'text-slate-200', 'fill-slate-300');
 
         // YakoNode header
         let header = document.createElement('div');
         header.classList.add('flex', 'w-full', 'h-full', 'border-b', 'font-bold', 'px-5', 'py-2', 'justify-center');
-        header.innerText = 'Node #';
+        header.innerText = `Node #${obj.id}`;
 
         // YakoNode body
         let body = document.createElement('div');
         body.classList.add('flex', 'flex-col', 'px-5', 'py-2')
 
         // CPU
-        let cpu = genSVGItem(mdiMemory, 'eXtreme CPU');
+        let cpu = genSVGItem(mdiMemory, yakonode_info.cpu_list[0].cpuName);
 
         // GPU
-        let gpu = genSVGItem(mdiExpansionCard, 'NVIDIA RTX 5000');
+        let gpu = genSVGItem(mdiExpansionCard, yakonode_info.gpu_list[0].gpuName);
 
         // Memory
-        let memory = genSVGItem(mdiContentSave, '16GB');
+        let memory = genSVGItem(mdiContentSave, `${yakonode_info.memory.total} (${formatBytes(yakonode_info.memory.total*1000, 2)})`);
 
         body.appendChild(cpu);
         body.appendChild(gpu);
