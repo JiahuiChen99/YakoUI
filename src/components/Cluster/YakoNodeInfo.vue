@@ -20,19 +20,19 @@
                     <div class="flex space-x-1">
                         <SvgIcon :path="cpu_icon" type="mdi"/>
                         <strong> CPU: </strong>
-                        <span> {{ this.yakonode_info.CpuList[0].cpuName }} </span>
+                        <span> {{ this.yakonode_info.cpu_list[0].cpuName }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <SvgIcon :path="gpu_icon" type="mdi"/>
                         <strong> GPU: </strong>
-                        <span> {{ this.yakonode_info.GpuList[0].gpuName }} </span>
+                        <span> {{ this.yakonode_info.gpu_list[0].gpuName }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <SvgIcon :path="memory_icon" type="mdi"/>
                         <strong> Memory: </strong>
-                        <span> {{ `${this.yakonode_info.Memory.total} (${formatBytes(yakonode_info.Memory.total*1000, 2)})` }} </span>
+                        <span> {{ `${this.yakonode_info.memory.total} (${formatBytes(yakonode_info.memory.total*1000, 2)})` }} </span>
                     </div>
                 </div>
 
@@ -41,27 +41,27 @@
                     <span class="font-bold"> System Information </span>
                     <div class="flex space-x-1">
                         <strong> Host name: </strong>
-                        <span> {{ this.yakonode_info.SysInfo.node_name }} </span>
+                        <span> {{ this.yakonode_info.sys_info.node_name }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <strong> OS: </strong>
-                        <span> {{ this.yakonode_info.SysInfo.sys_name }} </span>
+                        <span> {{ this.yakonode_info.sys_info.sys_name }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <strong> Release: </strong>
-                        <span> {{ this.yakonode_info.SysInfo.release }} </span>
+                        <span> {{ this.yakonode_info.sys_info.release }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <strong> Architecture: </strong>
-                        <span> {{ this.yakonode_info.SysInfo.machine }} </span>
+                        <span> {{ this.yakonode_info.sys_info.machine }} </span>
                     </div>
 
                     <div class="flex space-x-1">
                         <strong> Version: </strong>
-                        <span> {{ this.yakonode_info.SysInfo.version }} </span>
+                        <span> {{ this.yakonode_info.sys_info.version }} </span>
                     </div>
                 </div>
 

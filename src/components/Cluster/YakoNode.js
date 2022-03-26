@@ -37,13 +37,13 @@ class YakoNode extends Node {
         body.classList.add('flex', 'flex-col', 'px-5', 'py-2')
 
         // CPU
-        let cpu = genSVGItem(mdiMemory, yakonode_info.CpuList[0].cpuName);
+        let cpu = genSVGItem(mdiMemory, yakonode_info.cpu_list[0].cpuName);
 
         // GPU
-        let gpu = genSVGItem(mdiExpansionCard, yakonode_info.GpuList[0].gpuName);
+        let gpu = genSVGItem(mdiExpansionCard, yakonode_info.gpu_list[0].gpuName);
 
         // Memory
-        let memory = genSVGItem(mdiContentSave, `${yakonode_info.Memory.total} (${formatBytes(yakonode_info.Memory.total*1000, 2)})`);
+        let memory = genSVGItem(mdiContentSave, `${yakonode_info.memory.total} (${formatBytes(yakonode_info.memory.total*1000, 2)})`);
 
         body.appendChild(cpu);
         body.appendChild(gpu);
