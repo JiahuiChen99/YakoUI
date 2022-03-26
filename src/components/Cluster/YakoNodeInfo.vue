@@ -125,12 +125,20 @@ export default {
         // TODO: Add node type detection
         // Get selected node information
         this.yakonode_id = this.$store.getters['cluster/getSelectedNodeID'];
-        this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id];
+        if (this.yakonode_id[0] === 'm') {
+            this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_masters[this.yakonode_id];
+        } else {
+            this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id];
+        }
 
         // Subscribe to node selection change
         this.selection_unsubscribe = this.$store.subscribe((mutation) => {
             this.yakonode_id = mutation.payload.id;
-            this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id];
+            if (this.yakonode_id[0] === 'm') {
+                this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_masters[this.yakonode_id];
+            } else {
+                this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id];
+            }
         })
     },
     beforeUnmount() {
