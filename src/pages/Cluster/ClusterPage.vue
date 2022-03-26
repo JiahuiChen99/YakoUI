@@ -12,6 +12,7 @@ import 'butterfly-dag/dist/index.css';
 import YakoNodeInfo from "@/components/Cluster/YakoNodeInfo";
 import YakoNode from "@/components/Cluster/YakoNode";
 import YakoNodeEndpoint from "@/components/Cluster/YakoNodeEndpoint";
+import YakoNodeEdge from "@/components/Cluster/YakoNodeEdge";
 
 export default {
     name: "ClusterPage",
@@ -45,22 +46,34 @@ export default {
         });
 
         // Generate YakoAgent nodes
-        Object.keys(schema.yako_agents).forEach( (nodeID, index) => {
+        Object.keys(schema.yako_agents).forEach( (agentID, agentIndex) => {
             this.nodes.push({
-                id: nodeID,
-                top: 200 +  (index * 150),
+                id: agentID,
+                top: 200 +  (agentIndex * 150),
                 left: 500,
-                data: schema.yako_agents[nodeID],
+                data: schema.yako_agents[agentID],
                 Class: YakoNode,
                 // YakoAgents left endpoint
                 endpoints: [{
-                    id: 'left' + index,
+                    id: 'left' + agentIndex,
                     orientation: [-1, 0],
                     pos: [0, 0.5],
                     Class: YakoNodeEndpoint
                 }]
             })
-        })
+
+            // For each yakomaster create an endpoint with the yakoagent
+            Object.keys(schema.yako_masters).forEach( (masterID, masterIndex) => {
+                this.edges.push({
+                    source: 'right' + masterIndex,
+                    target: 'left' + agentIndex,
+                    sourceNode: masterID,
+                    targetNode: agentID,
+                    type: 'endpoint',
+                    Class: YakoNodeEdge
+                })
+            });
+        });
 
         this.canvas = new Canvas({
             root: document.getElementById('cluster_chart'),
@@ -92,6 +105,7 @@ export default {
         // Render canvas
         this.canvas.draw({
             nodes: this.nodes,
+            edges: this.edges
         },
             () => {
                 this.canvas.setGridMode(true, {
@@ -116,7 +130,8 @@ export default {
     data() {
         return {
             canvas: null,
-            nodes: []
+            nodes: [],
+            edges: [],
         }
     }
 }
