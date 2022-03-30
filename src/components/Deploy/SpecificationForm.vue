@@ -8,7 +8,17 @@
 
 <script>
 export default {
-    name: "SpecificationForm"
+    name: "SpecificationForm",
+    data() {
+        const max_ram = 512;
+        const max_cpu_cores = 64;
+        const max_gpu_cores = 1000;
+        return {
+            max_ram,
+            max_cpu_cores,
+            max_gpu_cores
+        }
+    }
 }
 </script>
 
