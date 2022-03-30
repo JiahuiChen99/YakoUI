@@ -13,7 +13,7 @@
                             :max="this.max_cpu_cores"
                             min="1"
                             step="1"
-                            value="1"
+                            v-model="this.cpu_cores_input"
                             class="form-range appearance-none w-full p-0 h-2.5 rounded-xl bg-gray-200 focus:outline-none
                             focus:ring-0 focus:shadow-none"
                         />
@@ -27,7 +27,7 @@
                         id="cpu_cores"
                         :max="this.max_cpu_cores"
                         min="1"
-                        value="1"
+                        v-model="this.cpu_cores_input"
                         class="w-24 bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5"
                         required
                     >
@@ -44,7 +44,7 @@
                             :max="this.max_ram"
                             min="1"
                             step="1"
-                            value="1"
+                            v-model="this.ram_input"
                             class="form-range appearance-none w-full p-0 h-2.5 rounded-xl bg-gray-200 focus:outline-none
                             focus:ring-0 focus:shadow-none"
                         />
@@ -58,7 +58,7 @@
                         id="memory"
                         :max="this.max_ram"
                         min="1"
-                        value="1"
+                        v-model="this.ram_input"
                         class="w-24 bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5"
                         required
                     >
@@ -75,7 +75,7 @@
                             :max="this.max_gpu_cores"
                             min="1"
                             step="1"
-                            value="1"
+                            v-model="this.gpu_cores_input"
                             class="form-range appearance-none w-full p-0 h-2.5 rounded-xl bg-gray-200 focus:outline-none
                             focus:ring-0 focus:shadow-none"
                         />
@@ -89,7 +89,7 @@
                         id="gpu_cores"
                         :max="this.max_gpu_cores"
                         min="1"
-                        value="1"
+                        v-model="this.gpu_cores_input"
                         class="w-24 bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5"
                         required
                     >
@@ -109,7 +109,10 @@ export default {
         return {
             max_ram,
             max_cpu_cores,
-            max_gpu_cores
+            max_gpu_cores,
+            cpu_cores_input: 1,
+            ram_input: 1,
+            gpu_cores_input: 1
         }
     }
 }
