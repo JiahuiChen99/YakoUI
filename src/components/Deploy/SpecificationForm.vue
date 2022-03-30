@@ -64,6 +64,37 @@
                     >
                 </div>
             </div>
+            <!-- GPU configuration field -->
+            <div class="flex flex-col space-y-2">
+                <span class="font-bold"> GPU Cores </span>
+                <div class="flex w-full space-x-5">
+                    <div class="flex flex-col w-full">
+                        <input
+                            type="range"
+                            id="gpu_cores_range"
+                            :max="this.max_gpu_cores"
+                            min="1"
+                            step="1"
+                            value="1"
+                            class="form-range appearance-none w-full p-0 h-2.5 rounded-xl bg-gray-200 focus:outline-none
+                            focus:ring-0 focus:shadow-none"
+                        />
+                        <div class="flex relative">
+                            <div class="absolute text-sm bottom-0 left-0 -mb-6">1</div>
+                            <div class="absolute text-sm bottom-0 right-0 -mb-6">{{ this.max_gpu_cores }}</div>
+                        </div>
+                    </div>
+                    <input
+                        type="number"
+                        id="gpu_cores"
+                        :max="this.max_gpu_cores"
+                        min="1"
+                        value="1"
+                        class="w-24 bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5"
+                        required
+                    >
+                </div>
+            </div>
         </div>
     </div>
 </template>
