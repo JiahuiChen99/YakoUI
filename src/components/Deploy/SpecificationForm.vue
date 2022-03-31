@@ -111,6 +111,14 @@ export default {
                 this.cpu_cores_input = 1;
             }
         },
+        gpu_cores_input(newValue) {
+            if ( newValue > this.max_gpu_cores ) {
+                this.gpu_cores_input = this.max_gpu_cores;
+            }
+            if ( newValue <= 0 && newValue !== "" ) {
+                this.gpu_cores_input = 1;
+            }
+        },
     },
     data() {
         const max_ram = 512;
