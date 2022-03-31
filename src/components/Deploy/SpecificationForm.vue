@@ -102,6 +102,16 @@
 <script>
 export default {
     name: "SpecificationForm",
+    watch: {
+        cpu_cores_input(newValue) {
+            if ( newValue > this.max_cpu_cores ) {
+                this.cpu_cores_input = this.max_cpu_cores;
+            }
+            if ( newValue <= 0 && newValue !== "") {
+                this.cpu_cores_input = 1;
+            }
+        },
+    },
     data() {
         const max_ram = 512;
         const max_cpu_cores = 64;
