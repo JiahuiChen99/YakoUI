@@ -119,6 +119,14 @@ export default {
                 this.gpu_cores_input = 1;
             }
         },
+        ram_input(newValue) {
+            if ( newValue > this.max_ram ) {
+                this.ram_input = this.max_ram;
+            }
+            if ( newValue <= 0 && newValue !== "" ) {
+                this.ram_input = 1;
+            }
+        }
     },
     data() {
         const max_ram = 512;
