@@ -20,13 +20,13 @@
 
 <script>
 import UploadConfirmation from "@/components/Deploy/UploadConfirmation";
-import SpecificationForm from "@/components/Deploy/SpecificationForm";
+import SysSpecificationForm from "@/components/Deploy/SysSpecificationForm";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiCogOutline} from "@mdi/js";
 export default {
     name: "DeployConfirmation",
     components: {
-        SpecificationForm,
+        SysSpecificationForm,
         UploadConfirmation,
         SvgIcon
     },
