@@ -88,6 +88,12 @@ export default {
         provide('sys_cpu_cores_input', sys_cpu_cores_input);
         provide('sys_gpu_cores_input', sys_gpu_cores_input);
         provide('sys_ram_input', sys_ram_input);
+
+        // App requirements inputs
+        let app_cpu_cores_input = ref(1);
+        let app_ram_input = ref(1);
+        provide('app_cpu_cores_input', app_cpu_cores_input);
+        provide('app_ram_input', app_ram_input);
     },
     data() {
         return {
