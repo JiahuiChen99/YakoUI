@@ -1,5 +1,35 @@
 <template>
     <div class="flex flex-col w-full h-full">
+        <!-- Requirements Summary -->
+        <div class="flex flex-col w-full h-fit">
+            <h1 class="font-bold text-xl"> Requirements Summary </h1>
+            <div class="flex flex-col w-full h-full divide-y space-y-2">
+                <!-- System requirements -->
+                <div class="flex flex-col space-y-1">
+                    <h2 class="font-bold"> System Requirements </h2>
+                    <ul>
+                        <li> System CPU: {{ }} cores</li>
+                    </ul>
+                    <ul>
+                        <li> System GPU: {{ }} cores</li>
+                    </ul>
+                    <ul>
+                        <li> System Memory: {{ }} GB</li>
+                    </ul>
+                </div>
+                <!-- App requirements -->
+                <div class="flex flex-col space-y-1">
+                    <h2 class="font-bold"> App Requirements </h2>
+                    <ul>
+                        <li> System CPU: {{ }} cores</li>
+                    </ul>
+                    <ul>
+                        <li> System Memory: {{ }} GB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- YakoMaster health check -->
         <div class="flex h-auto justify-center">
             <div class="flex w-auto h-auto relative">
