@@ -13,12 +13,28 @@
 import DragDrop from "@/components/Deploy/DragDrop";
 import DeployConfirmation from "@/components/Deploy/DeployConfirmation";
 import yakoapi from "@/services/API/yakoAPI";
+import {provide, ref} from "vue";
 
 export default {
     name: "DeployPage",
     components: {
         DeployConfirmation,
         DragDrop
+    },
+    setup() {
+        // Sys requirements inputs
+        let sys_cpu_cores_input = ref(1);
+        let sys_gpu_cores_input = ref(1);
+        let sys_ram_input = ref(1);
+        provide('sys_cpu_cores_input', sys_cpu_cores_input);
+        provide('sys_gpu_cores_input', sys_gpu_cores_input);
+        provide('sys_ram_input', sys_ram_input);
+
+        // App requirements inputs
+        let app_cpu_cores_input = ref(1);
+        let app_ram_input = ref(1);
+        provide('app_cpu_cores_input', app_cpu_cores_input);
+        provide('app_ram_input', app_ram_input);
     },
     methods: {
         /**

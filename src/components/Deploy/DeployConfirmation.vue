@@ -66,7 +66,6 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiCogOutline, mdiMatrix, mdiMemory, mdiUpload} from "@mdi/js";
 import IconButton from "@/components/UI/IconButton";
 import AppSpecificationForm from "@/components/Deploy/AppSpecificationForm";
-import {provide, ref} from "vue";
 export default {
     name: "DeployConfirmation",
     components: {
@@ -81,21 +80,6 @@ export default {
         app_name: function () {
             return this.$store.getters['deploy/getDeployAppName'];
         }
-    },
-    setup() {
-        // Sys requirements inputs
-        let sys_cpu_cores_input = ref(1);
-        let sys_gpu_cores_input = ref(1);
-        let sys_ram_input = ref(1);
-        provide('sys_cpu_cores_input', sys_cpu_cores_input);
-        provide('sys_gpu_cores_input', sys_gpu_cores_input);
-        provide('sys_ram_input', sys_ram_input);
-
-        // App requirements inputs
-        let app_cpu_cores_input = ref(1);
-        let app_ram_input = ref(1);
-        provide('app_cpu_cores_input', app_cpu_cores_input);
-        provide('app_ram_input', app_ram_input);
     },
     data() {
         return {
