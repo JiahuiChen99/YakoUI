@@ -35,6 +35,13 @@ export default {
         let app_ram_input = ref(1);
         provide('app_cpu_cores_input', app_cpu_cores_input);
         provide('app_ram_input', app_ram_input);
+        return {
+            sys_cpu_cores_input,
+            sys_gpu_cores_input,
+            sys_ram_input,
+            app_cpu_cores_input,
+            app_ram_input
+        }
     },
     methods: {
         /**
