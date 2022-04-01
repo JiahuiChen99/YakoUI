@@ -35,7 +35,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="flex flex-col w-full h-full p-5">
+            <div class="flex flex-col w-full h-full p-5 space-y-2">
                 <!-- Uploaded file section -->
                 <div class="flex flex-row rounded-lg px-5 py-4 border border-black">
                     <SvgIcon type="mdi" :path="app_icon"/>

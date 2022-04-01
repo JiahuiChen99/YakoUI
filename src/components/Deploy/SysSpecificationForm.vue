@@ -1,7 +1,7 @@
 <template>
     <div class="flex w-full h-full">
         <div class="flex flex-col w-full h-full bg-white rounded-lg">
-            <h1 class="font-bold text-xl my-2"> System Requirements </h1>
+            <h1 class="font-bold text-xl"> System Requirements </h1>
             <!-- CPU configuration field -->
             <div class="flex flex-col space-y-2">
                 <span class="font-bold"> CPU Cores </span>
