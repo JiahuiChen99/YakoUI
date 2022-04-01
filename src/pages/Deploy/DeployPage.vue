@@ -5,7 +5,7 @@
             <DragDrop @uploadFile="toggle_popup"/>
         </div>
         <!-- Specification form & Upload confirmation -->
-        <DeployConfirmation v-if="file_selected"/>
+        <DeployConfirmation v-if="file_selected" @buttonClick="confirm_upload"/>
     </section>
 </template>
 

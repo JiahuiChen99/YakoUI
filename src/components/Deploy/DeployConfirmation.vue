@@ -46,7 +46,7 @@
                 <!-- App specification -->
                 <AppSpecificationForm v-if="this.page === 1"/>
                 <!-- Upload Confirmation PopUp -->
-                <UploadConfirmation v-else-if="this.page === 2"/>
+                <UploadConfirmation v-else-if="this.page === 2" @buttonClick="(buttonID) => {$emit('buttonClick', buttonID)}"/>
                 <!-- Next / Prev buttons-->
                 <div v-if="this.page !== 2" class="flex w-full h-auto justify-center">
                     <IconButton text="Previous" :status="this.page > 0" @click="this.page--"/>
@@ -76,6 +76,7 @@ export default {
         SvgIcon,
         IconButton
     },
+    emits: ['buttonClick'],
     computed: {
         app_name: function () {
             return this.$store.getters['deploy/getDeployAppName'];
