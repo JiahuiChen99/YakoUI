@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import {inject} from "vue";
+
 export default {
     name: "AppSpecificationForm",
     watch: {
@@ -97,8 +99,8 @@ export default {
             max_ram,
             max_cpu_cores,
             max_gpu_cores,
-            cpu_cores_input: 1,
-            ram_input: 1,
+            cpu_cores_input: inject('app_cpu_cores_input'),
+            ram_input: inject('app_ram_input'),
         }
     }
 }

@@ -21,10 +21,10 @@
                 <div class="flex flex-col space-y-1">
                     <h2 class="font-bold"> App Requirements </h2>
                     <ul>
-                        <li> System CPU: {{ }} cores</li>
+                        <li> System CPU: {{ app_cpu_cores_input }} cores</li>
                     </ul>
                     <ul>
-                        <li> System Memory: {{ }} GB</li>
+                        <li> System Memory: {{ app_ram_input }} GB</li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,9 @@ export default {
         return {
             cpu_cores_input: inject('sys_cpu_cores_input'),
             gpu_cores_input: inject('sys_gpu_cores_input'),
-            ram_input: inject('sys_ram_input')
+            ram_input: inject('sys_ram_input'),
+            app_cpu_cores_input: inject('app_cpu_cores_input'),
+            app_ram_input: inject('app_ram_input'),
         }
     },
     data() {
