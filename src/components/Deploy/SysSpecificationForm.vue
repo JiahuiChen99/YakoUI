@@ -100,6 +100,8 @@
 </template>
 
 <script>
+import {inject} from "vue";
+
 export default {
     name: "SysSpecificationForm",
     watch: {
@@ -136,9 +138,9 @@ export default {
             max_ram,
             max_cpu_cores,
             max_gpu_cores,
-            cpu_cores_input: 1,
-            ram_input: 1,
-            gpu_cores_input: 1
+            cpu_cores_input: inject('sys_cpu_cores_input'),
+            gpu_cores_input: inject('sys_gpu_cores_input'),
+            ram_input: inject('sys_ram_input')
         }
     }
 }

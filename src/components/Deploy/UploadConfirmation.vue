@@ -8,13 +8,13 @@
                 <div class="flex flex-col space-y-1">
                     <h2 class="font-bold"> System Requirements </h2>
                     <ul>
-                        <li> System CPU: {{ }} cores</li>
+                        <li> System CPU: {{ cpu_cores_input }} cores</li>
                     </ul>
                     <ul>
-                        <li> System GPU: {{ }} cores</li>
+                        <li> System GPU: {{ gpu_cores_input }} cores</li>
                     </ul>
                     <ul>
-                        <li> System Memory: {{ }} GB</li>
+                        <li> System Memory: {{ ram_input }} GB</li>
                     </ul>
                 </div>
                 <!-- App requirements -->
@@ -54,6 +54,7 @@
 import {mdiClose, mdiSignalCellular3, mdiSignalCellularOutline, mdiUpload} from "@mdi/js";
 import IconButton from "@/components/UI/IconButton";
 import yakoAPI from "@/services/API/yakoAPI";
+import {inject} from "vue";
 
 export default {
     name: "UploadConfirmation",
@@ -71,6 +72,13 @@ export default {
             });
         }
     },
+    setup() {
+        return {
+            cpu_cores_input: inject('sys_cpu_cores_input'),
+            gpu_cores_input: inject('sys_gpu_cores_input'),
+            ram_input: inject('sys_ram_input')
+        }
+    },
     data() {
         return {
             cancel_icon: mdiClose,
@@ -78,7 +86,6 @@ export default {
             test_conn_icon: mdiSignalCellularOutline,
             conn_alive_icon: mdiSignalCellular3,
             alive: false,
-            data_structures: ['Graph', 'Tree']
         }
     }
 }
