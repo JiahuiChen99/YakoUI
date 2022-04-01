@@ -82,6 +82,7 @@ export default {
         }
     },
     setup() {
+        // Sys requirements inputs
         let sys_cpu_cores_input = ref(1);
         let sys_gpu_cores_input = ref(1);
         let sys_ram_input = ref(1);

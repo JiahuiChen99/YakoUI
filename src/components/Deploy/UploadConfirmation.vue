@@ -8,13 +8,13 @@
                 <div class="flex flex-col space-y-1">
                     <h2 class="font-bold"> System Requirements </h2>
                     <ul>
-                        <li> System CPU: {{ cpu_cores_input }} cores</li>
+                        <li> System CPU: {{ sys_cpu_cores_input }} cores</li>
                     </ul>
                     <ul>
-                        <li> System GPU: {{ gpu_cores_input }} cores</li>
+                        <li> System GPU: {{ sys_gpu_cores_input }} cores</li>
                     </ul>
                     <ul>
-                        <li> System Memory: {{ ram_input }} GB</li>
+                        <li> System Memory: {{ sys_ram_input }} GB</li>
                     </ul>
                 </div>
                 <!-- App requirements -->
@@ -74,9 +74,9 @@ export default {
     },
     setup() {
         return {
-            cpu_cores_input: inject('sys_cpu_cores_input'),
-            gpu_cores_input: inject('sys_gpu_cores_input'),
-            ram_input: inject('sys_ram_input'),
+            sys_cpu_cores_input: inject('sys_cpu_cores_input'),
+            sys_gpu_cores_input: inject('sys_gpu_cores_input'),
+            sys_ram_input: inject('sys_ram_input'),
             app_cpu_cores_input: inject('app_cpu_cores_input'),
             app_ram_input: inject('app_ram_input'),
         }
