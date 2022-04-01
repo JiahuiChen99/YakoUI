@@ -66,6 +66,7 @@ export default {
                 // Upload application to YakoMaster
                 const formData = new FormData();
                 formData.append('app', this.app_file);
+                this.build_form(formData);
                 yakoapi.deploy_app('deploy', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -78,6 +79,19 @@ export default {
 
             // Hides the popup
             this.toggle_popup();
+        },
+        /**
+         * Builds the form data structure with the data collected
+         * from the inputs.
+         * @param formData
+         */
+        build_form: function (formData) {
+            // TODO: Convert GB to MB
+            formData.append('sys_cpu_cores', this.sys_cpu_cores_input);
+            formData.append('sys_gpu_cores', this.sys_gpu_cores_input);
+            formData.append('sys_ram', this.sys_ram_input);
+            formData.append('app_cpu_cores', this.app_cpu_cores_input);
+            formData.append('app_ram', this.app_ram_input);
         }
     },
     data() {
