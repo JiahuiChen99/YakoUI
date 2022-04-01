@@ -43,6 +43,8 @@
                 </div>
                 <!-- App specification -->
                 <SysSpecificationForm v-if="this.page === 0"/>
+                <!-- App specification -->
+                <AppSpecificationForm v-if="this.page === 1"/>
                 <!-- Upload Confirmation PopUp -->
                 <UploadConfirmation v-else-if="this.page === 2"/>
                 <!-- Next / Prev buttons-->
@@ -63,9 +65,11 @@ import SysSpecificationForm from "@/components/Deploy/SysSpecificationForm";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiCogOutline, mdiMatrix, mdiMemory, mdiUpload} from "@mdi/js";
 import IconButton from "@/components/UI/IconButton";
+import AppSpecificationForm from "@/components/Deploy/AppSpecificationForm";
 export default {
     name: "DeployConfirmation",
     components: {
+        AppSpecificationForm,
         SysSpecificationForm,
         UploadConfirmation,
         SvgIcon,
