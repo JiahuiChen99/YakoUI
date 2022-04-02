@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col rounded-lg w-full h-full bg-primary p-5">
+    <div class="flex flex-col rounded-lg h-fit bg-primary p-5" :class="this.list ? 'w-full' : 'w-fit'">
         <h3 class="font-bold"> {{ master.id }} </h3>
         <div class="flex flex-col">
             <div class="flex space-x-2">
@@ -27,7 +27,7 @@ export default {
     components: {
         SvgIcon
     },
-    props: ['master'],
+    props: ['master', 'list'],
     data() {
         return {
             cpu_icon: mdiMemory,
