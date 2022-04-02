@@ -1,6 +1,6 @@
 import {Node} from 'butterfly-dag';
 import {mdiContentSave, mdiCrown, mdiExpansionCard, mdiMemory} from "@mdi/js";
-import formatBytes from "@/services/utils/utils";
+import {formatBytes} from "@/services/utils/utils";
 /*eslint-disable*/
 class YakoNode extends Node {
 

@@ -16,4 +16,16 @@ function formatBytes(bytes, decimals = 2) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-export default formatBytes;
+/**dxs f   
+ * Converts source number to KB
+ * @param source
+ * @param format 'GB', 'TB', etc
+ */
+function convertToKB(source, format) {
+    switch (format) {
+        case 'GB':
+            return source * Math.pow(10, 6);
+    }
+}
+
+export {formatBytes, convertToKB};

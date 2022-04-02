@@ -18,7 +18,6 @@ class yakoAPI {
      * @return {Promise<AxiosResponse<any>>}
      */
      deploy_app(endpoint, app, params) {
-        console.log(this.api)
         return this.api.post(endpoint, app, params)
     }
 
