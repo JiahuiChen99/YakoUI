@@ -72,7 +72,14 @@ export default {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
-                }).catch( err => {
+                })
+                .then( resp => {
+                    // Save the nodes to vuex
+                    this.$store.commit('deploy/setBestNodes', resp.data);
+                    // Redirect to dashboard
+                    // TODO: Redirect to dashboard
+                })
+                .catch( err => {
                     // TODO: Prompt error
                     console.log(err)
                 })
