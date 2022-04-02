@@ -1,7 +1,8 @@
 const deploy = {
     namespaced: true,
     state: () => ({
-       deploy_app_name: '',
+        deploy_app_name: '',
+        best_nodes: [],
     }),
     mutations: {
         // stores the name of the app to be deployed in the cluster
