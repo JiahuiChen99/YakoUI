@@ -14,6 +14,7 @@ import DragDrop from "@/components/Deploy/DragDrop";
 import DeployConfirmation from "@/components/Deploy/DeployConfirmation";
 import yakoapi from "@/services/API/yakoAPI";
 import {provide, ref} from "vue";
+import {convertToKB} from "@/services/utils/utils";
 
 export default {
     name: "DeployPage",
@@ -89,9 +90,9 @@ export default {
             // TODO: Convert GB to MB
             formData.append('sys_cpu_cores', this.sys_cpu_cores_input);
             formData.append('sys_gpu_cores', this.sys_gpu_cores_input);
-            formData.append('sys_ram', this.sys_ram_input);
+            formData.append('sys_ram', convertToKB(this.sys_ram_input, 'GB'));
             formData.append('app_cpu_cores', this.app_cpu_cores_input);
-            formData.append('app_ram', this.app_ram_input);
+            formData.append('app_ram', convertToKB(this.app_ram_input, 'GB'));
         }
     },
     data() {
