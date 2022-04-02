@@ -87,7 +87,6 @@ export default {
          * @param formData
          */
         build_form: function (formData) {
-            // TODO: Convert GB to MB
             formData.append('sys_cpu_cores', this.sys_cpu_cores_input);
             formData.append('sys_gpu_cores', this.sys_gpu_cores_input);
             formData.append('sys_ram', convertToKB(this.sys_ram_input, 'GB'));
