@@ -1,5 +1,5 @@
 <template>
-    <button class="flex w-fit h-fit rounded-lg p-0.5">
+    <button class="flex w-fit h-fit rounded-lg p-0.5" :disabled="disable">
         <SvgIcon :path="icon" type="mdi"/>
     </button>
 </template>
@@ -12,7 +12,7 @@ import SvgIcon from "@jamescoyle/vue-icon";
  */
 export default {
     name: "IButton",
-    props: ['icon'],
+    props: ['icon', 'disable'],
     components: {
         SvgIcon
     }
