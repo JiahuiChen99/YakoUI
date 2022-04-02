@@ -114,7 +114,7 @@ import {
 } from "@mdi/js";
 import IButton from "@/components/UI/IButton";
 import SvgIcon from "@jamescoyle/vue-icon";
-import formatBytes from "@/services/utils/utils";
+import {formatBytes} from "@/services/utils/utils";
 export default {
     name: "YakoNodeInfo",
     components: {
