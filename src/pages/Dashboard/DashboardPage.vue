@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="w-full h-full overflow-y-auto"
-                         :class="this.masters_list_mode ? 'flex flex-col space-y-3' : 'grid grid-cols-2 grid-rows-auto gap-5'"
+                         :class="this.masters_list_mode ? 'flex flex-col space-y-3' : 'grid grid-cols-2 grid-rows-auto gap-3'"
                     >
                         <YakoMasterCard v-for="(master, index) in yakomasters" :key="index" :master="master" :list="this.masters_list_mode"/>
                     </div>

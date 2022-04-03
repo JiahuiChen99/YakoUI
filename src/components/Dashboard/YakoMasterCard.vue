@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col rounded-lg h-fit bg-primary p-5" :class="this.list ? 'w-full' : 'w-fit'">
+    <div class="flex flex-col w-full rounded-lg h-fit bg-primary p-5">
         <h3 class="font-bold"> {{ master.id }} </h3>
         <div class="flex flex-col">
             <div class="flex space-x-2">
