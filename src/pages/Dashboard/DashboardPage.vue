@@ -101,6 +101,7 @@ export default {
     data() {
         return {
             masters_list_mode: true,
+            agents_list_mode: true,
             list_icon: mdiViewSequential,
             grid_icon: mdiViewGrid,
         }
