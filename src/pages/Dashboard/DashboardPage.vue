@@ -30,6 +30,33 @@
                         <YakoMasterCard v-for="(master, index) in yakomasters" :key="index" :master="master" :list="this.masters_list_mode"/>
                     </div>
                 </div>
+                <!-- YakoAgents list -->
+                <div class="flex flex-col w-full h-1/2 bg-white rounded-xl p-5 space-y-2">
+                    <div class="flex w-full justify-between">
+                        <h2 class="font-bold text-xl"> Agents </h2>
+                        <div class="flex space-x-2">
+                            <IButton
+                                :icon="list_icon"
+                                @click="this.agents_list_mode = true"
+                                :disable="this.agents_list_mode"
+                                class="bg-primary hover:bg-primary_variant rounded-md"
+                                :class="this.agents_list_mode ? 'disabled:opacity-30 disabled:hover:bg-primary' : null"
+                            />
+                            <IButton
+                                :icon="grid_icon"
+                                @click="this.agents_list_mode = false"
+                                :disable="!this.agents_list_mode"
+                                class="bg-primary hover:bg-primary_variant rounded-md"
+                                :class="!this.agents_list_mode ? 'disabled:opacity-30 disabled:hover:bg-primary' : null"
+                            />
+                        </div>
+                    </div>
+                    <div class="w-full h-full overflow-y-auto"
+                         :class="this.agents_list_mode ? 'flex flex-col space-y-3' : 'grid grid-cols-2 grid-rows-auto gap-3'"
+                    >
+                        <YakoMasterCard v-for="(agent, index) in yakoagents" :key="index" :master="agent" :list="this.agents_list_mode"/>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
