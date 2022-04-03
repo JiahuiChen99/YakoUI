@@ -1,8 +1,8 @@
 <template>
     <section id="dashboard" class="flex flex-col w-full h-full p-5">
         <h1 class="font-bold text-2xl"> Dashboard </h1>
-        <div class="flex w-full h-full py-5">
-            <div class="flex w-1/2 h-full">
+        <div class="flex w-full h-full py-5 overflow-hidden">
+            <div class="flex flex-col w-1/2 h-full space-y-5">
                 <!-- YakoMasters list -->
                 <div class="flex flex-col w-full h-1/2 bg-white rounded-xl p-5 space-y-2">
                     <div class="flex w-full justify-between">
