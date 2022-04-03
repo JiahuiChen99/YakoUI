@@ -57,6 +57,18 @@ export default {
                 })
             });
             return masters_list;
+        },
+        yakoagents: function () {
+            let schema = this.$store.getters['cluster/getClusterSchema'];
+            let agents_list = [];
+            // Generate YakoMaster nodes
+            Object.keys(schema.yako_agents).forEach( (nodeID) => {
+                agents_list.push({
+                    id: nodeID,
+                    data: schema.yako_agents[nodeID]
+                })
+            });
+            return agents_list;
         }
     },
     data() {
