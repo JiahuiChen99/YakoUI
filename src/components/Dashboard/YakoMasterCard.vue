@@ -8,7 +8,7 @@
             </div>
             <div class="flex space-x-2">
                 <SvgIcon :path="gpu_icon" type="mdi"/>
-                <span> {{master.data.gpu_list[0].gpuName }} </span>
+                <span> {{master.data?.gpu_list?.[0].gpuName }} </span>
             </div>
             <div class="flex space-x-2">
                 <SvgIcon :path="memory_icon" type="mdi"/>
