@@ -10,7 +10,7 @@
 <script>
 import TopYakoAgent from "@/components/Dashboard/TopYakoAgent";
 export default {
-    name: "TopAgentsSection",
+    name: "NodesApps",
     components: {
         TopYakoAgent
     },
