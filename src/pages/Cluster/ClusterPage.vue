@@ -13,6 +13,7 @@ import YakoNodeInfo from "@/components/Cluster/YakoNodeInfo";
 import YakoNode from "@/components/Cluster/YakoNode";
 import YakoNodeEndpoint from "@/components/Cluster/YakoNodeEndpoint";
 import YakoNodeEdge from "@/components/Cluster/YakoNodeEdge";
+import yakoAPI from "@/services/API/yakoAPI";
 
 export default {
     name: "ClusterPage",
@@ -25,6 +26,11 @@ export default {
         }
     },
     mounted() {
+        // Fetch cluster information
+        yakoAPI.get_cluster().then( res => {
+            this.$store.commit('cluster/setClusterSchema', JSON.parse(res.data))
+        });
+
         // Get cluster information from store
         let schema = this.$store.getters['cluster/getClusterSchema'];
         // Generate YakoMaster nodes
