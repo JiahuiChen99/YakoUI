@@ -17,6 +17,9 @@ export default {
     computed: {
         top_agents: function () {
             return this.$store.getters['deploy/getBestNodes'];
+        },
+        apps_list: function () {
+            return this.$store.getters['cluster/getAppsList'];
         }
     }
 }
