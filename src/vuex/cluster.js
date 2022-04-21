@@ -32,6 +32,9 @@ const cluster = {
         },
         getSelectedNodeID(state) {
             return state.selected_node_id;
+        },
+        getAppsList(state) {
+            return state.apps_list;
         }
     }
 }
