@@ -4,9 +4,9 @@
         <span> {{ app }} </span>
         <div class="flex space-x-2 invisible group-hover:visible">
             <!-- Deploy app -->
-            <IButton class="hover:bg-secondary" :icon="deploy_icon"/>
+            <IButton class="hover:bg-secondary text-green-700" :icon="deploy_icon"/>
             <!-- Remove app -->
-            <IButton class="hover:bg-secondary" :icon="remove_icon"/>
+            <IButton class="hover:bg-secondary text-red-700" :icon="remove_icon"/>
             <!-- Dots -->
             <IButton class="hover:bg-secondary" :icon="dots_icon"/>
         </div>
