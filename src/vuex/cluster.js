@@ -15,6 +15,10 @@ const cluster = {
         setNodeSelected(state, { status, id}) {
             state.node_selected = status;
             state.selected_node_id = id;
+        },
+        // Stores the uploaded apps list
+        setAppsList(state, apps_list) {
+            state.apps_list = apps_list;
         }
     },
     getters: {
