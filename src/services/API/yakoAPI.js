@@ -37,6 +37,14 @@ class yakoAPI {
     get_cluster() {
         return this.api.get('cluster')
     }
+
+    /**
+     * Gets the apps that have been uploaded to the system
+     * @return {Promise<AxiosResponse<any>>}
+     */
+    get_apps_list() {
+        return this.api.get('cluster/apps');
+    }
 }
 
 // New instance of the API service
