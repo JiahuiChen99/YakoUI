@@ -1,8 +1,8 @@
 <template>
-    <div class="flex bg-primary_variant rounded-lg p-3 justify-between">
+    <div class="flex bg-primary_variant rounded-lg p-3 justify-between group">
         <!-- App name -->
         <span> {{ app }} </span>
-        <div class="flex space-x-2">
+        <div class="flex space-x-2 invisible group-hover:visible">
             <!-- Deploy app -->
             <IButton class="hover:bg-secondary" :icon="deploy_icon"/>
             <!-- Remove app -->
