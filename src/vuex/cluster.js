@@ -3,7 +3,8 @@ const cluster = {
     state: () => ({
         cluster_schema: {},
         node_selected: false,
-        selected_node_id: ''
+        selected_node_id: '',
+        apps_list: null,
     }),
     mutations: {
         // Stores the name of the app to be deployed in the cluster
