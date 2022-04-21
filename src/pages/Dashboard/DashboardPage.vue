@@ -68,12 +68,19 @@ import YakoMasterCard from "@/components/Dashboard/YakoMasterCard";
 import IButton from "@/components/UI/IButton";
 import {mdiViewGrid, mdiViewSequential} from "@mdi/js";
 import NodesApps from "@/components/Dashboard/NodesApps";
+import yakoAPI from "@/services/API/yakoAPI";
 export default {
     name: "DashboardPage",
     components: {
         NodesApps,
         IButton,
         YakoMasterCard
+    },
+    mounted() {
+        // Get uploaded apps list and store it to vuex
+        yakoAPI.get_apps_list().then( (res) => {
+            this.$store.commit('cluster/setAppsList', res.data);
+        })
     },
     computed: {
         yakomasters: function () {
