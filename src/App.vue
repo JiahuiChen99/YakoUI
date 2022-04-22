@@ -19,6 +19,8 @@ export default {
         // TODO: Make the following call when connected to a YakoMaster
         // Get the cluster schema from YakoMaster
         this.get_cluster_info();
+        // Set interval for API calls to update UI cluster information
+        window.setInterval(this.get_cluster_info, 5000);
     },
     methods: {
         /**
