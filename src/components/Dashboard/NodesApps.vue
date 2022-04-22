@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-1/2 h-full rounded-xl p-5 space-y-2">
+    <div class="flex flex-col w-1/2 h-full rounded-xl space-y-2">
         <h2 class="font-bold text-xl"> Top Nodes </h2>
         <div class="grid grid-cols-3 w-full gap-x-3">
             <!-- Pulsating placeholders -->
