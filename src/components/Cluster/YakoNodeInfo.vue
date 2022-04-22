@@ -26,7 +26,7 @@
                     <div class="flex space-x-1">
                         <SvgIcon :path="gpu_icon" type="mdi"/>
                         <strong> GPU: </strong>
-                        <span> {{ this.yakonode_info.gpu_list[0].gpuName }} </span>
+                        <span> {{ this.yakonode_info?.gpu_list?.[0].gpuName }} </span>
                     </div>
 
                     <div class="flex space-x-1">
