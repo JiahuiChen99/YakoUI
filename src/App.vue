@@ -18,9 +18,19 @@ export default {
     mounted() {
         // TODO: Make the following call when connected to a YakoMaster
         // Get the cluster schema from YakoMaster
-        yakoAPI.get_cluster().then( res => {
-            this.$store.commit('cluster/setClusterSchema', JSON.parse(res.data))
-        });
+        this.get_cluster_info();
+        // Set interval for API calls to update UI cluster information
+        window.setInterval(this.get_cluster_info, 5000);
+    },
+    methods: {
+        /**
+         * Makes an API get cluster schema call and stores to vuex
+         */
+        get_cluster_info: function () {
+            yakoAPI.get_cluster().then( res => {
+                this.$store.commit('cluster/setClusterSchema', JSON.parse(res.data))
+            });
+        }
     }
 }
 </script>
