@@ -31,6 +31,11 @@ export default {
         provide('sys_gpu_cores_input', sys_gpu_cores_input);
         provide('sys_ram_input', sys_ram_input);
 
+        let iot = ref(false);
+        let autodeploy = ref(false);
+        provide('iot', iot);
+        provide('autodeploy', autodeploy)
+
         // App requirements inputs
         let app_cpu_cores_input = ref(1);
         let app_ram_input = ref(1);
@@ -41,7 +46,9 @@ export default {
             sys_gpu_cores_input,
             sys_ram_input,
             app_cpu_cores_input,
-            app_ram_input
+            app_ram_input,
+            iot,
+            autodeploy,
         }
     },
     methods: {
@@ -72,6 +79,10 @@ export default {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
+                    params: {
+                        'autodeploy': this.autodeploy,
+                        'iot': this.iot,
+                    }
                 })
                 .then( resp => {
                     // Save the nodes to vuex
