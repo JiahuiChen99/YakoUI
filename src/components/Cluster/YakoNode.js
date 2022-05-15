@@ -43,15 +43,17 @@ class YakoNode extends Node {
 
         // CPU
         let cpu = genSVGItem(mdiMemory, yakonode_info.cpu_list[0].cpuName);
+        body.appendChild(cpu);
 
         // GPU
-        let gpu = genSVGItem(mdiExpansionCard, yakonode_info?.gpu_list?.[0].gpuName);
+        yakonode_info?.gpu_list?.forEach( (g) => {
+            let gpu = genSVGItem(mdiExpansionCard, g.gpuName);
+            body.appendChild(gpu);
+        })
 
         // Memory
         let memory = genSVGItem(mdiContentSave, `${yakonode_info.memory.total} (${formatBytes(yakonode_info.memory.total*1000, 2)})`);
 
-        body.appendChild(cpu);
-        body.appendChild(gpu);
         body.appendChild(memory);
 
         // Add all elements to the node
