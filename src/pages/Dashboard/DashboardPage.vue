@@ -102,7 +102,7 @@ export default {
             Object.keys(schema.yako_agents).forEach( (nodeID) => {
                 agents_list.push({
                     id: nodeID,
-                    data: schema.yako_agents[nodeID]
+                    data: schema.yako_agents[nodeID].info
                 })
             });
             return agents_list;

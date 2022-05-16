@@ -57,7 +57,7 @@ export default {
                 id: agentID,
                 top: 200 +  (agentIndex * 150),
                 left: 500,
-                data: schema.yako_agents[agentID],
+                data: schema.yako_agents[agentID].info,
                 Class: YakoNode,
                 // YakoAgents left endpoint
                 endpoints: [{
