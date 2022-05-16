@@ -128,16 +128,28 @@ export default {
         if (this.yakonode_id[0] === 'm') {
             this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_masters[this.yakonode_id];
         } else {
-            this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id];
+            this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id].info;
         }
 
-        // Subscribe to node selection change
+        // Subscribe to node selection & cluster change
         this.selection_unsubscribe = this.$store.subscribe((mutation) => {
-            this.yakonode_id = mutation.payload.id;
-            if (this.yakonode_id[0] === 'm') {
-                this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_masters[this.yakonode_id];
-            } else {
-                this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id];
+            // Check for periodic cluster information changes
+            if ( mutation.type === 'cluster/setClusterSchema' ) {
+                // Update the selected yakoagent
+                if ( this.yakonode_id[0] === 'm' ) {
+                    // The selected node is a YakoMaster get its information
+                    this.yakonode_info = mutation.payload.yako_masters[this.yakonode_id];
+                } else {
+                    this.yakonode_info = mutation.payload.yako_agents[this.yakonode_id].info;
+                }
+            // Node selection event
+            } else if ( mutation.type === 'cluster/setNodeSelected' ) {
+                this.yakonode_id = mutation.payload.id;
+                if (this.yakonode_id[0] === 'm') {
+                    this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_masters[this.yakonode_id];
+                } else {
+                    this.yakonode_info = this.$store.getters['cluster/getClusterSchema'].yako_agents[this.yakonode_id].info;
+                }
             }
         })
     },
