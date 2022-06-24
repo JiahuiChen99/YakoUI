@@ -25,6 +25,22 @@ export default {
             return this.$store.getters['cluster/getNodeSelectedStatus'];
         }
     },
+    methods: {
+        /**
+         * Determine the column position depending on the node type
+         * 1: YakoMasters
+         * 2: YakoAgent (IoT)
+         * 3: YakoAgent
+         * @param agentID
+         */
+        determineColumn: function (agentID) {
+            switch (agentID[0]) {
+                case 'm': return 0;
+                case 'n': return 500;
+                default: return 1000;
+            }
+        }
+    },
     mounted() {
         // Fetch cluster information
         yakoAPI.get_cluster().then( res => {
@@ -56,7 +72,7 @@ export default {
             this.nodes.push({
                 id: agentID,
                 top: 200 +  (agentIndex * 150),
-                left: 500,
+                left: 500 + this.determineColumn(agentID),
                 data: schema.yako_agents[agentID].info,
                 Class: YakoNode,
                 // YakoAgents left endpoint
