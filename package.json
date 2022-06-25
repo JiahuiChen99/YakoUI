@@ -12,7 +12,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve"
+    "electron:serve": "vue-cli-service electron:serve",
+    "build-win": "vue-cli-service electron:build --win --ia32 --x64 --publish=onTagOrDraft",
+    "build-mac": "vue-cli-service electron:build --mac --publish=onTagOrDraft",
+    "build-linux": "vue-cli-service electron:build --linux --publish=onTagOrDraft"
   },
   "main": "background.js",
   "dependencies": {
