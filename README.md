@@ -14,3 +14,21 @@ YakoUI is the front-end application for the Yako platform powered by ElectronJS 
 - [Git](https://git-scm.com/)
 - [NodeJS](https://nodejs.org/)
 - [NPM](https://www.npmjs.com/)
+
+#### 🧰 Run the project
+
+These instructions will get you a copy of the project and run on your local machine for development and testing purposes.
+
+```
+// Clone git repository
+git clone https://github.com/JiahuiChen99/YakoUI.git
+
+// Installing project dependencies
+npm install
+
+//Electron application 
+npm run electron:serve
+
+// Runs a nodeJS web server at default port 8080 
+npm run serve
+```
