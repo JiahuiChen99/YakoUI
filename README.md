@@ -32,3 +32,25 @@ npm run electron:serve
 // Runs a nodeJS web server at default port 8080 
 npm run serve
 ```
+
+#### 🏗️ Build the project
+
+The following commands will build YakoUI for different target systems. Make sure to delete **--publish=onTagOrDraft** flag first, from the script in **package.json**.
+
+```
+// Clone git repository
+git clone https://github.com/JiahuiChen99/YakoUI.git
+
+// Installing project dependencies
+npm install
+
+// WINDOWS OS
+npm run build-win
+
+// LINUX OS
+// Caveat: make sure to have `libarchive-tools` or `bsdtar` to build for **.pacman**. Or comment it out
+npm run build-linux
+
+// MAC OS
+npm run build-mac
+```
