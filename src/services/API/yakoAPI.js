@@ -4,6 +4,7 @@ class yakoAPI {
     constructor() {
         // Create base axios instance
         this.api = axios.create({
+            // TODO: Change the API address
             baseURL: 'http://localhost:8001',
             timeout: 5000,
         })
