@@ -4,8 +4,8 @@ This project is part of the [Heterogeneous Computing Farm](https://github.com/Ji
 YakoUI is the front-end application for the Yako platform powered by ElectronJS and VueJS.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/JiahuiChen99/YakoUI/main/resources/demo/cluster_graph.png" alt="Cluster graph"/>
-    <img src="https://raw.githubusercontent.com/JiahuiChen99/YakoUI/main/resources/demo/dashboard.png" alt="Dashboard"/>
+    <img src="https://raw.githubusercontent.com/JiahuiChen99/YakoUI/main/src/resources/demo/cluster_graph.png" alt="Cluster graph"/>
+    <img src="https://raw.githubusercontent.com/JiahuiChen99/YakoUI/main/src/resources/demo/dashboard.png" alt="Dashboard"/>
 </p>
 
 ## 👩‍💻 For developers
